@@ -8,7 +8,7 @@
 # install.sh - Main installation script
 
 # --- 1. Update Sistem dan Repositori PHP ---
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
@@ -25,6 +25,7 @@ cd /var/www/html
 sudo wget -O mikhmon.zip https://codeload.github.com/laksa19/mikhmonv3/zip/master
 sudo unzip mikhmon.zip
 sudo mv mikhmonv3-master mikhmon
+cd
 
 # --- 4. Atur Hak Akses (Permission) Folder ---
 sudo chown -R www-data:www-data /var/www/html/mikhmon
