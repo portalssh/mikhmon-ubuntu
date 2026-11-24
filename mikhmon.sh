@@ -51,3 +51,6 @@ sudo a2dissite 000-default
 sudo chown -R www-data:www-data /var/www/html/mikhmon
 sudo chmod -R 755 /var/www/html/mikhmon
 
+# --- 7. Restart service apache2 ---
+systemctl reload apache2
+
