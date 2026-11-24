@@ -20,14 +20,33 @@ log "=========================================================="
 # --- Execute each installation phase ---
 sudo apt install apache2 php7.4 php7.4-gd php7.4-curl php7.4-xml php7.4-mbstring php7.4-zip wget unzip -y
 
-# --- Download dan Ekstrak Mikhmon ---
+# --- 3. Download dan Ekstrak Mikhmon ---
 cd /var/www/html
 sudo wget -O mikhmon.zip https://codeload.github.com/laksa19/mikhmonv3/zip/master
 sudo unzip mikhmon.zip
 sudo mv mikhmonv3-master mikhmon
 cd
 
-# --- 4. Atur Hak Akses (Permission) Folder ---
-sudo chown -R www-data:www-data /var/www/html/mikhmon
-sudo chmod -R 755 /var/www/html/mikhmon
+# --- 4. create virtualhost ---
+sudo tee /etc/apache2/sites-available/mikhmon.conf > /dev/null <<EOF
+
+<VirtualHost *:80>
+  ServerAdmin webmaster@localhost
+  DocumentRoot /var/www/mikhmon
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine on
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/mikhmon
+</VirtualHost>
+
+EOF
+
+# --- 5. Disable config default apache2 ---
+sudo a2dissite 000-default
+
+# --- 6. Atur Hak Akses (Permission) Folder ---
+sudo chown -R www-data:www-data /var/www/mikhmon
+sudo chmod -R 755 /var/www/mikhmon
 
