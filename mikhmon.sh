@@ -36,12 +36,6 @@ sudo tee /etc/apache2/sites-available/mikhmon.conf > /dev/null <<EOF
   DocumentRoot /var/www/html/mikhmon
 </VirtualHost>
 
-<VirtualHost *:443>
-    SSLEngine on
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/mikhmon
-</VirtualHost>
-
 EOF
 
 # --- 5. Disable config default apache2 ---
