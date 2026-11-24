@@ -32,13 +32,13 @@ sudo tee /etc/apache2/sites-available/mikhmon.conf > /dev/null <<EOF
 
 <VirtualHost *:80>
   ServerAdmin webmaster@localhost
-  DocumentRoot /var/www/mikhmon
+  DocumentRoot /var/www/html/mikhmon
 </VirtualHost>
 
 <VirtualHost *:443>
     SSLEngine on
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/mikhmon
+    DocumentRoot /var/www/html/mikhmon
 </VirtualHost>
 
 EOF
@@ -47,6 +47,6 @@ EOF
 sudo a2dissite 000-default
 
 # --- 6. Atur Hak Akses (Permission) Folder ---
-sudo chown -R www-data:www-data /var/www/mikhmon
-sudo chmod -R 755 /var/www/mikhmon
+sudo chown -R www-data:www-data /var/www/html/mikhmon
+sudo chmod -R 755 /var/www/html/mikhmon
 
