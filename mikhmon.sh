@@ -38,12 +38,12 @@ sudo tee /etc/apache2/sites-available/mikhmon.conf > /dev/null <<EOF
 
 EOF
 
-# --- 5. Disable config default apache2 ---
-sudo a2dissite 000-default
-
-# --- 6. Atur Hak Akses (Permission) Folder ---
+# --- 5. Atur Hak Akses (Permission) Folder ---
 sudo chown -R www-data:www-data /var/www/html/mikhmon
 sudo chmod -R 755 /var/www/html/mikhmon
+
+# --- 6. Disable config default apache2 ---
+sudo a2dissite 000-default
 
 # --- 7. Restart service apache2 ---
 systemctl reload apache2
