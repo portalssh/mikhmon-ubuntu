@@ -25,6 +25,7 @@ cd /var/www/html
 sudo wget -O mikhmon.zip https://codeload.github.com/laksa19/mikhmonv3/zip/master
 sudo unzip mikhmon.zip
 sudo mv mikhmonv3-master mikhmon
+rm -rf mikhmon.zip
 cd
 
 # --- 4. create virtualhost ---
