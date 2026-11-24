@@ -31,7 +31,3 @@ cd
 sudo chown -R www-data:www-data /var/www/html/mikhmon
 sudo chmod -R 755 /var/www/html/mikhmon
 
-log "=========================================================="
-log "✅ MIKHMON installation completed successfully!"
-log "Log file: $LOG_FILE"
-log "=========================================================="
